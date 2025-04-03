@@ -40,14 +40,14 @@ jobs:
           echo "CXX=clang++" >> "$GITHUB_ENV"
 
       - name:          Checkout sources & submodules
-        uses:          actions/checkout@v3.1.0
+        uses:          actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
         with:
           fetch-depth: 5
           submodules:  recursive
 
       - name:          Install toolchain
         id:            toolchain
-        uses:          actions-rs/toolchain@v1.0.7
+        uses:          actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1.0.7
         with:
           profile:     minimal
           toolchain:   ${{ matrix.toolchain }}
@@ -57,7 +57,7 @@ jobs:
       - uses:          Swatinem/rust-cache@22c9328bcba27aa81a32b1bef27c7e3c78052531 # v2.0.1
 
       - name:          Cache sccache
-        uses:          actions/cache@v3.0.11
+        uses:          actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # v3.0.11
         with:
           path:        "$HOME/sccache"
           key:         sccache-${{ env['cache_hash'] }}
@@ -71,7 +71,7 @@ jobs:
 
       # here comes different part
       - name:          Checking ${{ matrix.platform }}-${{ matrix.toolchain }}
-        uses:          actions-rs/cargo@v1.0.3
+        uses:          actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command:     check
           toolchain:   ${{ matrix.toolchain }}
@@ -110,14 +110,14 @@ jobs:
           echo "CXX=clang++" >> "$GITHUB_ENV"
 
       - name:          Checkout sources & submodules
-        uses:          actions/checkout@v3.1.0
+        uses:          actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
         with:
           fetch-depth: 5
           submodules:  recursive
 
       - name:          Install toolchain
         id:            toolchain
-        uses:          actions-rs/toolchain@v1.0.7
+        uses:          actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1.0.7
         with:
           profile:     minimal
           toolchain:   ${{ matrix.toolchain }}
@@ -127,7 +127,7 @@ jobs:
       - uses:          Swatinem/rust-cache@22c9328bcba27aa81a32b1bef27c7e3c78052531 # v2.0.1
 
       - name:          Cache sccache
-        uses:          actions/cache@v3.0.11
+        uses:          actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # v3.0.11
         with:
           path:        "$HOME/sccache"
           key:         sccache-${{ env['cache_hash'] }}
@@ -141,14 +141,14 @@ jobs:
 
       # here comes different part
       - name:          Testing ${{ matrix.platform }}-${{ matrix.toolchain }} (debug build)
-        uses:          actions-rs/cargo@v1.0.3
+        uses:          actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command:     test
           toolchain:   ${{ matrix.toolchain }}
           args:        --all --verbose
 
       - name:          Testing ${{ matrix.platform }}-${{ matrix.toolchain }} (release build)
-        uses:          actions-rs/cargo@v1.0.3
+        uses:          actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command:     test
           toolchain:   ${{ matrix.toolchain }}
@@ -191,14 +191,14 @@ jobs:
           echo "CXX=clang++" >> "$GITHUB_ENV"
 
       - name:          Checkout sources & submodules
-        uses:          actions/checkout@v3.1.0
+        uses:          actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
         with:
           fetch-depth: 5
           submodules:  recursive
 
       - name:          Install toolchain
         id:            toolchain
-        uses:          actions-rs/toolchain@v1.0.7
+        uses:          actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1.0.7
         with:
           profile:     minimal
           toolchain:   ${{ matrix.toolchain }}
@@ -208,7 +208,7 @@ jobs:
       - uses:          Swatinem/rust-cache@22c9328bcba27aa81a32b1bef27c7e3c78052531 # v2.0.1
 
       - name:          Cache sccache
-        uses:          actions/cache@v3.0.11
+        uses:          actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # v3.0.11
         with:
           path:        "$HOME/sccache"
           key:         sccache-${{ env['cache_hash'] }}
@@ -222,35 +222,35 @@ jobs:
 
       # here comes different part
       - name:          Building ${{ matrix.platform }}-${{ matrix.toolchain }}
-        uses:          actions-rs/cargo@v1.0.3
+        uses:          actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command:     build
           toolchain:   ${{ matrix.toolchain }}
           args:        --all --verbose --release
 
       - name:          Building `no default` ${{ matrix.platform }}-${{ matrix.toolchain }}
-        uses:          actions-rs/cargo@v1.0.3
+        uses:          actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command:     build
           toolchain:   ${{ matrix.toolchain }}
           args:        --verbose --no-default-features
 
       - name:          Building `hmac` ${{ matrix.platform }}-${{ matrix.toolchain }}
-        uses:          actions-rs/cargo@v1.0.3
+        uses:          actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command:     build
           toolchain:   ${{ matrix.toolchain }}
           args:        --verbose --no-default-features --features hmac
 
       - name:          Building `static-context` ${{ matrix.platform }}-${{ matrix.toolchain }}
-        uses:          actions-rs/cargo@v1.0.3
+        uses:          actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command:     build
           toolchain:   ${{ matrix.toolchain }}
           args:        --verbose --no-default-features --features static-context
 
       - name:          Building `lazy-static-context` ${{ matrix.platform }}-${{ matrix.toolchain }}
-        uses:          actions-rs/cargo@v1.0.3
+        uses:          actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command:     build
           toolchain:   ${{ matrix.toolchain }}
@@ -265,7 +265,7 @@ jobs:
         shell:         bash
 
       - name:          Upload artifacts
-        uses:          actions/upload-artifact@v3.1.0
+        uses:          actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # v3.1.0
         with:
           name:        ${{ matrix.platform }}.${{ matrix.toolchain }}.${{ matrix.compiler }}.zip
           path:        artifacts/

@@ -21,13 +21,13 @@ jobs:
         uses:          styfle/cancel-workflow-action@b173b6ec0100793626c2d9e6b90435061f4fc3e5 # 0.11.0
 
       - name:          Checkout sources & submodules
-        uses:          actions/checkout@v3.1.0
+        uses:          actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
         with:
           fetch-depth: 5
           submodules:  recursive
 
       - name:          Install toolchain
-        uses:          actions-rs/toolchain@v1.0.7
+        uses:          actions-rs/toolchain@16499b5e05bf2e26879000db0c1d13f7e13fa3af # v1.0.7
         with:
           profile:     minimal
           toolchain:   stable
@@ -35,7 +35,7 @@ jobs:
           override:    true
 
       - name:          Checking style
-        uses:          actions-rs/cargo@v1.0.3
+        uses:          actions-rs/cargo@844f36862e911db73fe0815f00a4a2602c279505 # v1.0.3
         with:
           command:     fmt
           toolchain:   stable
